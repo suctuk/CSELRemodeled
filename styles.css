@@ -1,0 +1,251 @@
+/* Main Styles for CSEL Redesign Portfolio */
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    background-color: #e6ede8;
+}
+
+/* Section Headings */
+.section-heading {
+    position: relative;
+}
+.section-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #155E39;
+}
+
+/* Timeline Styling */
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+}
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #155E39;
+}
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    bottom: -15px;
+    width: 2px;
+    background-color: #155E39;
+}
+.timeline-item:last-child::after {
+    display: none;
+}
+
+/* Team Member Cards */
+.team-member {
+    transition: transform 0.3s ease;
+}
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+/* Before After Slider */
+.before-after-slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+.before-after-slider .before-image,
+.before-after-slider .after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.before-after-slider .before-image {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+.before-after-slider .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    cursor: ew-resize;
+    z-index: 10;
+}
+.before-after-slider .slider-handle::after {
+    content: "⟷";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #155E39;
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+/* Golden Circle */
+.golden-circle {
+    background-color: #e6ede8;
+    border-radius: 50%;
+    position: relative;
+    padding: 40px;
+    margin: 20px auto;
+}
+.why-circle {
+    background-color: #155E39;
+    color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.how-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+.what-circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: #155E39;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Model Gallery */
+.model-gallery img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.model-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll Animations */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Workshop Cards */
+.workshop-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.workshop-card .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #155E39;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #155E39;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 94, 57, 0.1);
+}
+.contact-form button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact-form button:hover {
+    background-color: #0f4025;
+}
+.contact-form button:active {
+    transform: scale(0.98);
+}
+
+/* Footer */
+.footer {
+    background-color: #1a202c;
+}
+.footer a {
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: #38a169;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .golden-circle, .what-circle, .how-circle, .why-circle {
+        transform: scale(0.8);
+        margin: 0 auto;
+    }
+    .golden-circle {
+        width: 400px !important;
+        height: 400px !important;
+    }
+    .section-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 640px) {
+    .golden-circle {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    .what-circle {
+        width: 300px;
+        height: 300px;
+    }
+    .how-circle {
+        width: 200px;
+        height: 200px;
+    }
+    .why-circle {
+        width: 120px;
+        height: 120px;
+    }
+}
