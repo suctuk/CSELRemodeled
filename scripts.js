@@ -1,6 +1,62 @@
 // Main JavaScript for CSEL Redesign Portfolio Website
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const mobileSunIcon = document.getElementById('mobile-sun-icon');
+    const mobileMoonIcon = document.getElementById('mobile-moon-icon');
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeToggleIcon(savedTheme);
+    } else if (systemPrefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeToggleIcon('dark');
+    } else {
+        updateThemeToggleIcon('light');
+    }
+    
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeToggleIcon(newTheme);
+    }
+    
+    // Update theme toggle icon
+    function updateThemeToggleIcon(theme) {
+        if (theme === 'dark') {
+            if (sunIcon) sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.add('hidden');
+            if (mobileSunIcon) mobileSunIcon.classList.remove('hidden');
+            if (mobileMoonIcon) mobileMoonIcon.classList.add('hidden');
+        } else {
+            if (sunIcon) sunIcon.classList.add('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
+            if (mobileSunIcon) mobileSunIcon.classList.add('hidden');
+            if (mobileMoonIcon) mobileMoonIcon.classList.remove('hidden');
+        }
+    }
+    
+    // Theme toggle event listeners
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+    
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -209,6 +265,29 @@ document.addEventListener('DOMContentLoaded', function() {
         
         counters.forEach(counter => {
             observer.observe(counter);
+        });
+    }
+    
+    // Back to top button functionality
+    const backToTop = document.getElementById('back-to-top');
+    
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

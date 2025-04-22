@@ -8,24 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
-<body class="font-sans text-gray-800">
+<body class="font-sans">
     <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
+    <nav class="nav shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-gray-800">CSEL<span class="text-green-800">Redesign</span></a>
+            <a href="#" class="text-xl font-bold text-primary">CSEL<span class="text-accent">Redesign</span></a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#overview" class="text-gray-600 hover:text-green-800 transition duration-300">Overview</a>
-                <a href="#project" class="text-gray-600 hover:text-green-800 transition duration-300">Project</a>
-                <a href="#team" class="text-gray-600 hover:text-green-800 transition duration-300">Team</a>
-                <a href="#models" class="text-gray-600 hover:text-green-800 transition duration-300">3D Models</a>
-                <a href="#website" class="text-gray-600 hover:text-green-800 transition duration-300">Website</a>
-                <a href="#workshops" class="text-gray-600 hover:text-green-800 transition duration-300">Workshops</a>
-                <a href="#contact" class="text-gray-600 hover:text-green-800 transition duration-300">Contact</a>
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#project" class="nav-link">Project</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#models" class="nav-link">3D Models</a>
+                <a href="#website" class="nav-link">Website</a>
+                <a href="#workshops" class="nav-link">Workshops</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i id="sun-icon" class="fas fa-sun text-xl hidden"></i>
+                    <i id="moon-icon" class="fas fa-moon text-xl"></i>
+                </button>
             </div>
-            <div class="md:hidden">
-                <button class="text-gray-500 focus:outline-none" id="mobile-menu-button">
+            <div class="md:hidden flex items-center space-x-4">
+                <!-- Mobile Theme Toggle -->
+                <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i id="mobile-sun-icon" class="fas fa-sun text-xl hidden"></i>
+                    <i id="mobile-moon-icon" class="fas fa-moon text-xl"></i>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button class="text-secondary focus:outline-none" id="mobile-menu-button">
                     <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -36,20 +48,13 @@
         <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#overview"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Overview</a>
-                <a href="#project"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Project</a>
-                <a href="#team"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Team</a>
-                <a href="#models" class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">3D
-                    Models</a>
-                <a href="#website"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Website</a>
-                <a href="#workshops"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Workshops</a>
-                <a href="#contact"
-                    class="block px-3 py-2 text-gray-600 hover:text-green-800 transition duration-300">Contact</a>
+                <a href="#overview" class="block px-3 py-2 nav-link">Overview</a>
+                <a href="#project" class="block px-3 py-2 nav-link">Project</a>
+                <a href="#team" class="block px-3 py-2 nav-link">Team</a>
+                <a href="#models" class="block px-3 py-2 nav-link">3D Models</a>
+                <a href="#website" class="block px-3 py-2 nav-link">Website</a>
+                <a href="#workshops" class="block px-3 py-2 nav-link">Workshops</a>
+                <a href="#contact" class="block px-3 py-2 nav-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -58,18 +63,14 @@
     <section id="home" class="hero-section flex items-center justify-center relative pt-20">
         <div class="container mx-auto px-6 py-16 md:flex md:items-center">
             <div class="md:w-1/2 md:pr-12">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Learning Remodeled</h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">CSEL Redesign Project</h2>
-                <p class="text-lg text-gray-600 mb-8">A comprehensive redesign of the Computer Science Education
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-primary">Learning Remodeled</h1>
+                <h2 class="text-2xl md:text-3xl text-secondary mb-6">CSEL Redesign Project</h2>
+                <p class="text-lg text-secondary mb-8">A comprehensive redesign of the Computer Science Education
                     Laboratory (CSEL) at CU Boulder, reimagining the space to foster collaboration, productivity, and a
                     sense of belonging.</p>
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                    <a href="#project"
-                        class="bg-green-800 text-white py-3 px-6 rounded-md font-medium hover:bg-green-700 transition duration-300 text-center">Explore
-                        Project</a>
-                    <a href="#models"
-                        class="border border-green-800 text-green-800 py-3 px-6 rounded-md font-medium hover:bg-green-50 transition duration-300 text-center">View
-                        3D Models</a>
+                    <a href="#project" class="btn-primary">Explore Project</a>
+                    <a href="#models" class="btn-secondary">View 3D Models</a>
                 </div>
             </div>
             <div class="md:w-1/2 mt-10 md:mt-0">
@@ -77,7 +78,7 @@
             </div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-8">
-            <a href="#overview" class="text-green-800 animate-bounce">
+            <a href="#overview" class="text-accent animate-bounce">
                 <svg class="h-8 w-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -87,44 +88,41 @@
     </section>
 
     <!-- Overview Section -->
-    <section id="overview" class="py-20 bg-white">
+    <section id="overview" class="py-20 bg-primary">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Project Overview</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our project reimagines the CSEL by engaging with its
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-description">Our project reimagines the CSEL by engaging with its
                     community to create a strategic outline for future physical and digital changes. By incorporating
                     students' needs and perspectives, we aim to design a space, website, and social opportunities to
                     foster collaboration, productivity, and a sense of belonging.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div
-                    class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation">
+                    <div class="icon-wrapper">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Space Redesign</h3>
-                    <p class="text-gray-600">Complete reimagining of the physical space to optimize for different types
+                    <h3 class="text-xl font-bold mb-3 text-primary">Space Redesign</h3>
+                    <p class="text-secondary">Complete reimagining of the physical space to optimize for different types
                         of student activities, improve accessibility, and create a more welcoming environment.</p>
                 </div>
 
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation"
-                    style="transition-delay: 200ms;">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation" style="transition-delay: 200ms;">
+                    <div class="icon-wrapper">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Website Development</h3>
-                    <p class="text-gray-600">Creation of a central digital hub for the CSEL community to showcase
+                    <h3 class="text-xl font-bold mb-3 text-primary">Website Development</h3>
+                    <p class="text-secondary">Creation of a central digital hub for the CSEL community to showcase
                         student projects, reserve spaces, and find resources.</p>
                 </div>
 
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation"
-                    style="transition-delay: 400ms;">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation" style="transition-delay: 400ms;">
+                    <div class="icon-wrapper">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Community Building</h3>
-                    <p class="text-gray-600">Developing workshops, events, and outreach programs that strengthen
+                    <h3 class="text-xl font-bold mb-3 text-primary">Community Building</h3>
+                    <p class="text-secondary">Developing workshops, events, and outreach programs that strengthen
                         connections among Computer Science students, faculty, and staff.</p>
                 </div>
             </div>
@@ -132,7 +130,7 @@
     </section>
 
     <!-- Project Purpose Section -->
-    <section id="project" class="py-20 bg-gray-50">
+    <section id="project" class="py-20 bg-secondary">
         <div class="container mx-auto px-6">
             <div class="md:flex md:items-center md:space-x-12">
                 <div class="md:w-1/2 mb-10 md:mb-0">
@@ -149,25 +147,25 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6 section-heading">The Golden Circle</h2>
-                    <p class="text-lg text-gray-600 mb-6">We approached this project using Simon Sinek's Golden Circle
+                    <h2 class="text-3xl font-bold mb-6 section-heading text-primary">The Golden Circle</h2>
+                    <p class="text-lg text-secondary mb-6">We approached this project using Simon Sinek's Golden Circle
                         framework, starting with our core purpose:</p>
 
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold text-green-800 mb-2">WHY</h3>
-                        <p class="text-gray-600 mb-4">To build a home for Computer Science students that fosters a sense
+                        <h3 class="text-xl font-bold text-accent mb-2">WHY</h3>
+                        <p class="text-secondary mb-4">To build a home for Computer Science students that fosters a sense
                             of belonging, community, and pride.</p>
                     </div>
 
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold text-green-800 mb-2">HOW</h3>
-                        <p class="text-gray-600 mb-4">By applying user-centered design principles, serving the natural
+                        <h3 class="text-xl font-bold text-accent mb-2">HOW</h3>
+                        <p class="text-secondary mb-4">By applying user-centered design principles, serving the natural
                             community, developing pride, and amplifying successes.</p>
                     </div>
 
                     <div>
-                        <h3 class="text-xl font-bold text-green-800 mb-2">WHAT</h3>
-                        <p class="text-gray-600 mb-4">The physical space redesign, community website, workshops, and
+                        <h3 class="text-xl font-bold text-accent mb-2">WHAT</h3>
+                        <p class="text-secondary mb-4">The physical space redesign, community website, workshops, and
                             student outreach programs that transform the CSEL into a true hub for computer science
                             education.</p>
                     </div>
@@ -177,50 +175,48 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-20 bg-white">
+    <section id="team" class="py-20 bg-primary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">Meet
                 The Team</h2>
 
             <div class="md:flex md:space-x-12 justify-center">
-                <div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-lg mb-10 md:mb-0 md:w-1/3">
+                <div class="team-member rounded-lg overflow-hidden shadow-lg mb-10 md:mb-0 md:w-1/3">
                     <img src="/api/placeholder/400/300" alt="Sena U" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Sena U</h3>
-                        <p class="text-green-800 font-medium mb-4">Lead Software Developer</p>
-                        <p class="text-gray-600 mb-4">Responsible for designing and developing the CSEL website,
+                        <h3 class="text-xl font-bold mb-2 text-primary">Sena U</h3>
+                        <p class="text-accent font-medium mb-4">Lead Software Developer</p>
+                        <p class="text-secondary mb-4">Responsible for designing and developing the CSEL website,
                             organizing workshops, and leading community outreach efforts.</p>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="#" class="nav-link">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="#" class="nav-link">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="mailto:sena.uctuk@colorado.edu"
-                                class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="mailto:sena.uctuk@colorado.edu" class="nav-link">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-lg md:w-1/3">
+                <div class="team-member rounded-lg overflow-hidden shadow-lg md:w-1/3">
                     <img src="/api/placeholder/400/300" alt="Austin E" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Austin E</h3>
-                        <p class="text-green-800 font-medium mb-4">Chief Design Architect</p>
-                        <p class="text-gray-600 mb-4">Led the 3D modeling and spatial design efforts, developing
+                        <h3 class="text-xl font-bold mb-2 text-primary">Austin E</h3>
+                        <p class="text-accent font-medium mb-4">Chief Design Architect</p>
+                        <p class="text-secondary mb-4">Led the 3D modeling and spatial design efforts, developing
                             comprehensive redesign proposals based on user research and feedback.</p>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="#" class="nav-link">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="#" class="nav-link">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="mailto:austin.emfield@colorado.edu"
-                                class="text-gray-500 hover:text-green-800 transition duration-300">
+                            <a href="mailto:austin.emfield@colorado.edu" class="nav-link">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -231,53 +227,53 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-secondary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">Project
                 Timeline</h2>
 
             <div class="max-w-3xl mx-auto">
                 <div class="timeline-item pb-12 scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">Initial Research & Planning</h3>
-                    <p class="text-sm text-gray-500 mb-3">January 2024</p>
-                    <p class="text-gray-600">Conducted stakeholder interviews with Michelle Schol (CSEL Ambassador
+                    <h3 class="text-xl font-bold mb-2 text-primary">Initial Research & Planning</h3>
+                    <p class="text-sm text-secondary mb-3">January 2024</p>
+                    <p class="text-secondary">Conducted stakeholder interviews with Michelle Schol (CSEL Ambassador
                         Supervisor) and Spencer (Grad Student and Professor) to understand key pain points and
                         opportunities.</p>
                 </div>
 
                 <div class="timeline-item pb-12 scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">User Research & Surveys</h3>
-                    <p class="text-sm text-gray-500 mb-3">February 2024</p>
-                    <p class="text-gray-600">Gathered extensive feedback from the CSEL community through surveys and
+                    <h3 class="text-xl font-bold mb-2 text-primary">User Research & Surveys</h3>
+                    <p class="text-sm text-secondary mb-3">February 2024</p>
+                    <p class="text-secondary">Gathered extensive feedback from the CSEL community through surveys and
                         observations. Identified key issues: lack of seating, poor organization, and limited resources.
                     </p>
                 </div>
 
                 <div class="timeline-item pb-12 scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">Architectural Research & Initial Designs</h3>
-                    <p class="text-sm text-gray-500 mb-3">February - March 2024</p>
-                    <p class="text-gray-600">Researched best practices in educational space design. Developed initial 3D
+                    <h3 class="text-xl font-bold mb-2 text-primary">Architectural Research & Initial Designs</h3>
+                    <p class="text-sm text-secondary mb-3">February - March 2024</p>
+                    <p class="text-secondary">Researched best practices in educational space design. Developed initial 3D
                         models based on user-centered design principles, comfort, and noise management.</p>
                 </div>
 
                 <div class="timeline-item pb-12 scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">Design Iterations & User Testing</h3>
-                    <p class="text-sm text-gray-500 mb-3">March 2024</p>
-                    <p class="text-gray-600">Created multiple design iterations based on continued user feedback.
+                    <h3 class="text-xl font-bold mb-2 text-primary">Design Iterations & User Testing</h3>
+                    <p class="text-sm text-secondary mb-3">March 2024</p>
+                    <p class="text-secondary">Created multiple design iterations based on continued user feedback.
                         Refined spatial organization, furniture selection, and aesthetic elements.</p>
                 </div>
 
                 <div class="timeline-item pb-12 scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">Website Development</h3>
-                    <p class="text-sm text-gray-500 mb-3">March - April 2024</p>
-                    <p class="text-gray-600">Designed and developed a comprehensive website for the CSEL community with
+                    <h3 class="text-xl font-bold mb-2 text-primary">Website Development</h3>
+                    <p class="text-sm text-secondary mb-3">March - April 2024</p>
+                    <p class="text-secondary">Designed and developed a comprehensive website for the CSEL community with
                         project showcase, room reservations, and event calendar features.</p>
                 </div>
 
                 <div class="timeline-item scroll-animation">
-                    <h3 class="text-xl font-bold mb-2">Final Proposal & Portfolio</h3>
-                    <p class="text-sm text-gray-500 mb-3">April 2024</p>
-                    <p class="text-gray-600">Finalized comprehensive redesign proposal including physical space changes,
+                    <h3 class="text-xl font-bold mb-2 text-primary">Final Proposal & Portfolio</h3>
+                    <p class="text-sm text-secondary mb-3">April 2024</p>
+                    <p class="text-secondary">Finalized comprehensive redesign proposal including physical space changes,
                         website implementation, and community program recommendations.</p>
                 </div>
             </div>
@@ -285,13 +281,13 @@
     </section>
 
     <!-- 3D Models Section -->
-    <section id="models" class="py-20 bg-white">
+    <section id="models" class="py-20 bg-primary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">3D
                 Models & Renders</h2>
 
             <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-6">Before & After Comparison</h3>
+                <h3 class="text-2xl font-bold mb-6 text-primary">Before & After Comparison</h3>
 
                 <div class="before-after-slider rounded-lg shadow-xl h-96 mb-6 relative">
                     <img src="/api/placeholder/800/500" alt="Current CSEL Space"
@@ -301,103 +297,103 @@
                     <div class="slider-handle"></div>
                 </div>
 
-                <p class="text-gray-600 text-center text-sm">Drag the slider to compare the current space with our
+                <p class="text-secondary text-center text-sm">Drag the slider to compare the current space with our
                     redesigned vision</p>
             </div>
 
             <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-6">Design Evolution</h3>
+                <h3 class="text-2xl font-bold mb-6 text-primary">Design Evolution</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 model-gallery">
                     <div class="scroll-animation">
                         <img src="/api/placeholder/400/300" alt="Initial Model" class="rounded-lg shadow-md mb-4">
-                        <h4 class="font-bold mb-2">Model v1: Initial Concept</h4>
-                        <p class="text-gray-600">First spatial concept focusing on measuring the space and understanding
+                        <h4 class="font-bold mb-2 text-primary">Model v1: Initial Concept</h4>
+                        <p class="text-secondary">First spatial concept focusing on measuring the space and understanding
                             traffic patterns.</p>
                     </div>
 
                     <div class="scroll-animation" style="transition-delay: 200ms;">
                         <img src="/api/placeholder/400/300" alt="Improved Model" class="rounded-lg shadow-md mb-4">
-                        <h4 class="font-bold mb-2">Model v2: UX/HX Informed Design</h4>
-                        <p class="text-gray-600">Enhanced design incorporating user feedback about seating options and
+                        <h4 class="font-bold mb-2 text-primary">Model v2: UX/HX Informed Design</h4>
+                        <p class="text-secondary">Enhanced design incorporating user feedback about seating options and
                             divisionality through height variety.</p>
                     </div>
 
                     <div class="scroll-animation" style="transition-delay: 400ms;">
                         <img src="/api/placeholder/400/300" alt="Final Model" class="rounded-lg shadow-md mb-4">
-                        <h4 class="font-bold mb-2">Model v4: Final Design</h4>
-                        <p class="text-gray-600">Final design featuring accessibility improvements, café section, and
+                        <h4 class="font-bold mb-2 text-primary">Model v4: Final Design</h4>
+                        <p class="text-secondary">Final design featuring accessibility improvements, café section, and
                             updated lighting based on all user feedback.</p>
                     </div>
                 </div>
             </div>
 
             <div>
-                <h3 class="text-2xl font-bold mb-6">Key Design Features</h3>
+                <h3 class="text-2xl font-bold mb-6 text-primary">Key Design Features</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div class="flex items-start scroll-animation">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Increased Seating Capacity</h4>
-                            <p class="text-gray-600">Added 40% more seating with a focus on diverse arrangement options
+                            <h4 class="font-bold mb-2 text-primary">Increased Seating Capacity</h4>
+                            <p class="text-secondary">Added 40% more seating with a focus on diverse arrangement options
                                 including individual, group, and collaborative spaces.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start scroll-animation" style="transition-delay: 100ms;">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Enhanced Accessibility</h4>
-                            <p class="text-gray-600">Wider pathways, improved furniture height options, and better
+                            <h4 class="font-bold mb-2 text-primary">Enhanced Accessibility</h4>
+                            <p class="text-secondary">Wider pathways, improved furniture height options, and better
                                 spatial organization for increased accessibility.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start scroll-animation" style="transition-delay: 200ms;">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Noise Management</h4>
-                            <p class="text-gray-600">Strategic zoning of the space to create quiet study areas,
+                            <h4 class="font-bold mb-2 text-primary">Noise Management</h4>
+                            <p class="text-secondary">Strategic zoning of the space to create quiet study areas,
                                 collaborative zones, and social spaces with appropriate acoustic treatments.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start scroll-animation" style="transition-delay: 300ms;">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Modernized Aesthetics</h4>
-                            <p class="text-gray-600">Refreshed color palette with natural materials, improved lighting,
+                            <h4 class="font-bold mb-2 text-primary">Modernized Aesthetics</h4>
+                            <p class="text-secondary">Refreshed color palette with natural materials, improved lighting,
                                 and plant integration for a more welcoming environment.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start scroll-animation" style="transition-delay: 400ms;">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Flexible Furniture</h4>
-                            <p class="text-gray-600">Modular and movable furniture systems that allow students to
+                            <h4 class="font-bold mb-2 text-primary">Flexible Furniture</h4>
+                            <p class="text-secondary">Modular and movable furniture systems that allow students to
                                 customize their workspace based on their specific needs.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start scroll-animation" style="transition-delay: 500ms;">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-2">Café Integration</h4>
-                            <p class="text-gray-600">Dedicated space for CSEL Sips - a coffee and refreshment area that
+                            <h4 class="font-bold mb-2 text-primary">Café Integration</h4>
+                            <p class="text-secondary">Dedicated space for CSEL Sips - a coffee and refreshment area that
                                 serves as both a social hub and study break location.</p>
                         </div>
                     </div>
@@ -407,7 +403,7 @@
     </section>
 
     <!-- Website Development Section -->
-    <section id="website" class="py-20 bg-gray-50">
+    <section id="website" class="py-20 bg-secondary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">Website
                 Development</h2>
@@ -418,68 +414,66 @@
                 </div>
 
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">Digital Community Hub</h3>
-                    <p class="text-gray-600 mb-6">The new CSEL website serves as a central digital hub for the Computer
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Digital Community Hub</h3>
+                    <p class="text-secondary mb-6">The new CSEL website serves as a central digital hub for the Computer
                         Science community at CU Boulder, enhancing the physical space redesign through online resources
                         and community features.</p>
 
                     <div class="flex items-start mb-4">
-                        <div class="mr-3 mt-1 text-green-800">
+                        <div class="mr-3 mt-1 text-accent">
                             <i class="fas fa-check text-sm"></i>
                         </div>
-                        <p class="text-gray-600">Clean, accessible interface following university design standards</p>
+                        <p class="text-secondary">Clean, accessible interface following university design standards</p>
                     </div>
 
                     <div class="flex items-start mb-4">
-                        <div class="mr-3 mt-1 text-green-800">
+                        <div class="mr-3 mt-1 text-accent">
                             <i class="fas fa-check text-sm"></i>
                         </div>
-                        <p class="text-gray-600">Mobile-responsive design for access on all devices</p>
+                        <p class="text-secondary">Mobile-responsive design for access on all devices</p>
                     </div>
 
                     <div class="flex items-start mb-4">
-                        <div class="mr-3 mt-1 text-green-800">
+                        <div class="mr-3 mt-1 text-accent">
                             <i class="fas fa-check text-sm"></i>
                         </div>
-                        <p class="text-gray-600">Integration with university authentication systems</p>
+                        <p class="text-secondary">Integration with university authentication systems</p>
                     </div>
 
                     <div class="flex items-start">
-                        <div class="mr-3 mt-1 text-green-800">
+                        <div class="mr-3 mt-1 text-accent">
                             <i class="fas fa-check text-sm"></i>
                         </div>
-                        <p class="text-gray-600">Custom-built for the specific needs of CSEL users</p>
+                        <p class="text-secondary">Custom-built for the specific needs of CSEL users</p>
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation">
+                    <div class="icon-wrapper">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Room Reservations</h3>
-                    <p class="text-gray-600">Easy-to-use system for students to reserve study rooms, collaboration
+                    <h3 class="text-xl font-bold mb-3 text-primary">Room Reservations</h3>
+                    <p class="text-secondary">Easy-to-use system for students to reserve study rooms, collaboration
                         spaces, and presentation areas for group projects or individual work.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation"
-                    style="transition-delay: 200ms;">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation" style="transition-delay: 200ms;">
+                    <div class="icon-wrapper">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Project Showcase</h3>
-                    <p class="text-gray-600">Platform for students to display their completed projects, fostering
+                    <h3 class="text-xl font-bold mb-3 text-primary">Project Showcase</h3>
+                    <p class="text-secondary">Platform for students to display their completed projects, fostering
                         knowledge sharing and community recognition of achievements.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 scroll-animation"
-                    style="transition-delay: 400ms;">
-                    <div class="text-green-800 text-4xl mb-4">
+                <div class="feature-card scroll-animation" style="transition-delay: 400ms;">
+                    <div class="icon-wrapper">
                         <i class="fas fa-bullhorn"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Event Calendar</h3>
-                    <p class="text-gray-600">Centralized calendar for workshops, speaker events, office hours, and
+                    <h3 class="text-xl font-bold mb-3 text-primary">Event Calendar</h3>
+                    <p class="text-secondary">Centralized calendar for workshops, speaker events, office hours, and
                         community gatherings to improve participation and accessibility.</p>
                 </div>
             </div>
@@ -487,7 +481,7 @@
     </section>
 
     <!-- Workshops Section -->
-    <section id="workshops" class="py-20 bg-white">
+    <section id="workshops" class="py-20 bg-primary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">
                 Community Workshops</h2>
@@ -499,29 +493,29 @@
                     </div>
 
                     <div class="md:w-1/2">
-                        <h3 class="text-2xl font-bold mb-4">CSEL Sips & Workshops</h3>
-                        <p class="text-gray-600 mb-6">Our project includes the development of regular workshops and
+                        <h3 class="text-2xl font-bold mb-4 text-primary">CSEL Sips & Workshops</h3>
+                        <p class="text-secondary mb-6">Our project includes the development of regular workshops and
                             social events designed to strengthen the computer science community while sharing valuable
                             skills and knowledge.</p>
 
                         <div class="flex items-start mb-6">
-                            <div class="mr-4 mt-1 text-green-800">
+                            <div class="mr-4 mt-1 text-accent">
                                 <i class="fas fa-users text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-2">Community-Driven</h4>
-                                <p class="text-gray-600">Workshops are developed based on student interests and needs,
+                                <h4 class="font-bold mb-2 text-primary">Community-Driven</h4>
+                                <p class="text-secondary">Workshops are developed based on student interests and needs,
                                     with opportunities for students to both teach and learn.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start">
-                            <div class="mr-4 mt-1 text-green-800">
+                            <div class="mr-4 mt-1 text-accent">
                                 <i class="fas fa-graduation-cap text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-2">Skill Enhancement</h4>
-                                <p class="text-gray-600">Topics range from technical skills and career development to
+                                <h4 class="font-bold mb-2 text-primary">Skill Enhancement</h4>
+                                <p class="text-secondary">Topics range from technical skills and career development to
                                     wellness and work-life balance in the tech industry.</p>
                             </div>
                         </div>
@@ -530,24 +524,24 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="workshop-card bg-gray-50 rounded-lg overflow-hidden shadow-md scroll-animation">
+                <div class="workshop-card rounded-lg overflow-hidden shadow-md scroll-animation">
                     <div class="relative">
                         <img src="/api/placeholder/400/200" alt="GitHub Workshop" class="w-full h-48 object-cover">
                         <div class="date">March 2024</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Portfolio Development with GitHub Pages</h3>
-                        <p class="text-gray-600 mb-4">Learn how to create your own professional portfolio hosted on
+                        <h3 class="text-xl font-bold mb-2 text-primary">Portfolio Development with GitHub Pages</h3>
+                        <p class="text-secondary mb-4">Learn how to create your own professional portfolio hosted on
                             GitHub
                             Pages with your own domain. Perfect for showcasing your projects to potential employers.</p>
-                        <div class="flex items-center text-sm text-gray-500">
+                        <div class="flex items-center text-sm text-secondary">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>CSEL, 6pm-8pm</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="workshop-card bg-gray-50 rounded-lg overflow-hidden shadow-md scroll-animation"
+                <div class="workshop-card rounded-lg overflow-hidden shadow-md scroll-animation"
                     style="transition-delay: 200ms;">
                     <div class="relative">
                         <img src="/api/placeholder/400/200" alt="Technical Interview Workshop"
@@ -555,28 +549,28 @@
                         <div class="date">Monthly</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Technical Interview Prep</h3>
-                        <p class="text-gray-600 mb-4">Regular practice sessions for technical interviews, including
+                        <h3 class="text-xl font-bold mb-2 text-primary">Technical Interview Prep</h3>
+                        <p class="text-secondary mb-4">Regular practice sessions for technical interviews, including
                             algorithm challenges, system design problems, and behavioral question preparation.</p>
-                        <div class="flex items-center text-sm text-gray-500">
+                        <div class="flex items-center text-sm text-secondary">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>CSEL, Every 2nd Thursday</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="workshop-card bg-gray-50 rounded-lg overflow-hidden shadow-md scroll-animation"
+                <div class="workshop-card rounded-lg overflow-hidden shadow-md scroll-animation"
                     style="transition-delay: 400ms;">
                     <div class="relative">
                         <img src="/api/placeholder/400/200" alt="Coffee & Code" class="w-full h-48 object-cover">
                         <div class="date">Weekly</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">CSEL Sips: Coffee & Code</h3>
-                        <p class="text-gray-600 mb-4">Weekly informal gatherings where students can work on projects,
+                        <h3 class="text-xl font-bold mb-2 text-primary">CSEL Sips: Coffee & Code</h3>
+                        <p class="text-secondary mb-4">Weekly informal gatherings where students can work on projects,
                             ask
                             questions, and connect with peers over free coffee and refreshments.</p>
-                        <div class="flex items-center text-sm text-gray-500">
+                        <div class="flex items-center text-sm text-secondary">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>CSEL, Every Friday Afternoon</span>
                         </div>
@@ -587,28 +581,28 @@
     </section>
 
     <!-- Statistics Section -->
-    <section class="py-20 bg-gray-800 text-white">
+    <section class="py-20 stats-section">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center">Project Impact</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                 <div class="p-6">
-                    <div class="text-5xl font-bold mb-4 text-green-400 counter" data-target="40">0</div>
+                    <div class="text-5xl font-bold mb-4 counter" data-target="40">0</div>
                     <p class="text-xl">Percent Increase in Seating</p>
                 </div>
 
                 <div class="p-6">
-                    <div class="text-5xl font-bold mb-4 text-green-400 counter" data-target="200">0</div>
+                    <div class="text-5xl font-bold mb-4 counter" data-target="200">0</div>
                     <p class="text-xl">Students Surveyed</p>
                 </div>
 
                 <div class="p-6">
-                    <div class="text-5xl font-bold mb-4 text-green-400 counter" data-target="15">0</div>
+                    <div class="text-5xl font-bold mb-4 counter" data-target="15">0</div>
                     <p class="text-xl">Community Workshops Planned</p>
                 </div>
 
                 <div class="p-6">
-                    <div class="text-5xl font-bold mb-4 text-green-400 counter" data-target="93">0</div>
+                    <div class="text-5xl font-bold mb-4 counter" data-target="93">0</div>
                     <p class="text-xl">Percent Student Approval</p>
                 </div>
             </div>
@@ -616,77 +610,77 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20 bg-primary">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 text-center section-heading mx-auto" style="width: fit-content;">Get In
                 Touch</h2>
 
             <div class="md:flex md:space-x-12">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
 
                     <div class="flex items-start mb-6">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-map-marker-alt text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-1">Location</h4>
-                            <p class="text-gray-600">Computer Science Education Laboratory (CSEL)<br>Engineering Center,
+                            <h4 class="font-bold mb-1 text-primary">Location</h4>
+                            <p class="text-secondary">Computer Science Education Laboratory (CSEL)<br>Engineering Center,
                                 ECCS 114<br>University of Colorado Boulder<br>Boulder, CO 80309</p>
                         </div>
                     </div>
 
                     <div class="flex items-start mb-6">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-envelope text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-1">Email</h4>
-                            <p class="text-gray-600">
+                            <h4 class="font-bold mb-1 text-primary">Email</h4>
+                            <p class="text-secondary">
                                 <a href="mailto:csel@colorado.edu"
-                                    class="hover:text-green-800 transition duration-300">csel@colorado.edu</a>
+                                    class="nav-link">csel@colorado.edu</a>
                             </p>
                         </div>
                     </div>
 
                     <div class="flex items-start">
-                        <div class="mr-4 mt-1 text-green-800">
+                        <div class="mr-4 mt-1 text-accent">
                             <i class="fas fa-clock text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-1">Hours</h4>
-                            <p class="text-gray-600">Open 24/7 with BuffOneCard access</p>
+                            <h4 class="font-bold mb-1 text-primary">Hours</h4>
+                            <p class="text-secondary">Open 24/7 with BuffOneCard access</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-primary">Send Us a Message</h3>
 
                     <form id="contact-form" class="contact-form">
                         <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <label for="name" class="block font-medium mb-2">Your Name</label>
                             <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md">
                         </div>
 
                         <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                            <label for="email" class="block font-medium mb-2">Your Email</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md">
                         </div>
 
                         <div class="mb-6">
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <label for="subject" class="block font-medium mb-2">Subject</label>
                             <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-md">
                         </div>
 
                         <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <label for="message" class="block font-medium mb-2">Your Message</label>
                             <textarea id="message" name="message" rows="5"
                                 class="w-full px-4 py-2 rounded-md"></textarea>
                         </div>
 
                         <button type="submit"
-                            class="bg-green-800 text-white py-3 px-6 rounded-md font-medium hover:bg-green-700 transition duration-300">
+                            class="btn-primary">
                             Send Message
                         </button>
                     </form>
@@ -696,11 +690,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer text-white py-12">
+    <footer class="footer py-12">
         <div class="container mx-auto px-6">
             <div class="md:flex md:justify-between">
                 <div class="mb-8 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-4">CSEL<span class="text-green-400">Redesign</span></h3>
+                    <h3 class="text-2xl font-bold mb-4">CSEL<span class="text-accent">Redesign</span></h3>
                     <p class="text-gray-400 max-w-md">A capstone project by Sena U and Austin E reimagining the Computer
                         Science Education Laboratory at CU Boulder.</p>
                 </div>
@@ -766,7 +760,7 @@
 
     <!-- Back to top button -->
     <a href="#" id="back-to-top"
-        class="fixed bottom-6 right-6 bg-green-800 text-white h-12 w-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        class="fixed bottom-6 right-6 h-12 w-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
     </a>
 
