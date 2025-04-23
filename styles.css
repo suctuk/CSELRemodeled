@@ -38,9 +38,10 @@ body {
 
 /* Hero Section */
 .hero-section {
-    min-height: 80vh;
+    min-height: vh;
     background-color: var(--bg-hero);
     transition: background-color 0.3s ease;
+    padding: 3vw;
 }
 
 /* Navigation */
