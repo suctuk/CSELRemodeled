@@ -263,14 +263,14 @@ body {
 }
 
 /* Golden Circle */
-.golden-circle {
+/* .golden-circle {
     background-color: var(--bg-hero);
     border-radius: 50%;
     position: relative;
     padding: 40px;
     margin: 20px auto;
-}
-.why-circle {
+} */
+/* .why-circle {
     background-color: var(--accent-primary);
     color: var(--text-inverse);
     border-radius: 50%;
@@ -305,7 +305,7 @@ body {
     color: var(--text-inverse);
     position: relative;
     z-index: 1;
-}
+} */
 
 /* Model Gallery */
 .model-gallery img {
