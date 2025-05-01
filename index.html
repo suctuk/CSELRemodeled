@@ -60,33 +60,46 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center relative pt-20">
-        <div class="container mx-auto px-6 py-16 md:flex md:items-center">
-            <div class="md:w-1/2 md:pr-12">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-primary">Learning Remodeled</h1>
-                <h2 class="text-2xl md:text-3xl text-secondary mb-6">CSEL Redesign Project</h2>
-                <p class="text-lg text-secondary mb-8">A comprehensive redesign of the Computer Science Education
-                    Laboratory (CSEL) at CU Boulder, reimagining the space to foster collaboration, productivity, and a
-                    sense of belonging.</p>
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                    <a href="#project" class="btn-primary">Explore Project</a>
-                    <a href="#models" class="btn-secondary">View 3D Models</a>
+    <section id="home" class="hero-section flex items-center justify-center relative h-screen">
+        <div class="absolute inset-0 w-full h-full">
+            <iframe
+                src="https://www.youtube.com/embed/wGRhy-XaV7Q?si=GZ2hx-93eoSR9-uG&autoplay=1&mute=1&controls=0&loop=1&playlist=wGRhy-XaV7Q"
+                id="hero-video" class="absolute inset-0 w-full h-full object-cover" frameborder="0"
+                allow="autoplay; fullscreen" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Added semi-transparent overlay for text -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="bg-black bg-opacity-50 rounded-lg p-8 max-w-3xl mx-auto">
+                <div class="container mx-auto px-6 py-8 relative z-10 text-center text-white">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Learning Remodeled</h1>
+                    <h2 class="text-2xl md:text-3xl mb-6">CSEL Redesign Project</h2>
+                    <p class="text-lg mb-8">A comprehensive redesign of the Computer Science Education Laboratory (CSEL)
+                        at CU Boulder, reimagining the space to foster collaboration, productivity, and a sense of
+                        belonging.</p>
+                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#project" class="btn-primary">Explore Project</a>
+                        <a href="#models" class="btn-secondary">View 3D Models</a>
+                    </div>
                 </div>
             </div>
-            <div class="md:w-1/2 mt-10 md:mt-0">
-                <img src="Assets/modelRenders/LookingRight.png" alt="CSEL Redesign 3D Render"
-                    class="rounded-lg shadow-xl mx-auto" style="width: 80%;">
-            </div>
         </div>
+
         <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-8">
-            <a href="#overview" class="text-accent animate-bounce">
-                <svg class="h-8 w-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            <a href="#overview" class="text-accent animate-slow-bounce bg-black bg-opacity-50 rounded-lg p-3 max-w-3xl mx-auto">                <svg class="h-8 w-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
             </a>
         </div>
     </section>
+
+    <script>
+        // Adjust video playback speed
+        const video = document.getElementById('hero-video');
+        video.playbackRate = 1.5; // Change this value to adjust speed (e.g., 0.5 for half speed, 2.0 for double speed)
+    </script>
 
     <!-- Overview Section -->
     <section id="overview" class="py-20 bg-primary">
@@ -296,9 +309,9 @@
                 <h3 class="text-2xl font-bold mb-6 text-primary">Before & After Comparison</h3>
 
                 <div class="before-after-slider rounded-lg shadow-xl h-96 mb-6 relative">
-                    <img src="/Assets/OGCSELPhotos/FrontDoorAngle.JPG" alt="Current CSEL Space"
+                    <img src="/Assets/modelRenders/FrontDoorRender.png"" alt=" Current CSEL Space"
                         class="after-image w-full h-full object-cover">
-                    <img src="/Assets/modelRenders/FrontDoorRender.png" alt="Redesigned CSEL Space"
+                    <img src="/Assets/OGCSELPhotos/FrontDoorAngle.JPG" alt="Redesigned CSEL Space"
                         class="before-image w-full h-full object-cover">
                     <!-- <img src="/Assets/modelRenders/FrontDoorSketchup.png" alt="Redesigned CSEL Space"
                         class="before-image w-full h-full object-cover"> -->
