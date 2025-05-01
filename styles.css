@@ -221,6 +221,24 @@ body {
     color: var(--accent-primary);
 }
 
+/* Image Slideshow for models*/
+
+.image-slideshow {
+    position: relative;
+}
+
+.slide {
+    transition: opacity 1s ease-in-out;
+}
+
+.slide:not(.active) {
+    opacity: 0;
+}
+
+.active {
+    opacity: 1;
+}
+
 /* Before After Slider */
 .before-after-slider {
     position: relative;

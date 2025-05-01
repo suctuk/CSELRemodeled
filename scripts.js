@@ -290,5 +290,41 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Initialize each slideshow
+    const slideshows = document.querySelectorAll('.image-slideshow');
+        
+    slideshows.forEach(slideshow => {
+        const slides = slideshow.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        // Hide all slides except the first one
+        slides.forEach((slide, index) => {
+            if (index !== 0) {
+                slide.style.opacity = '0';
+                slide.style.position = 'absolute';
+                slide.style.top = '0';
+                slide.style.left = '0';
+            }
+        });
+        
+        // Function to change slides
+        function nextSlide() {
+            // Fade out current slide
+            slides[currentSlide].style.opacity = '0';
+            
+            // Move to next slide
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Fade in next slide
+            slides[currentSlide].style.opacity = '1';
+            slides[currentSlide].style.position = 'absolute';
+            slides[currentSlide].style.top = '0';
+            slides[currentSlide].style.left = '0';
+        }
+        
+        // Set interval to change slides every 5 seconds
+        setInterval(nextSlide, 5000);
+    });
 });
 
