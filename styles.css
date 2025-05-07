@@ -456,7 +456,7 @@ body {
   .what-circle,
   .how-circle,
   .why-circle {
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
     margin: 0 auto;
   }
   .golden-circle {
