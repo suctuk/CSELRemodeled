@@ -448,10 +448,37 @@
 
             <div class="md:flex md:items-center md:space-x-12 mb-16">
                 <div class="md:w-1/2 mb-8 md:mb-0">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7XQdzN0XV5c?si=1WtjXG9hucOuqqmD&autoplay=1&controls=0&loop=1&playlist=7XQdzN0XV5c"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <!-- Container for the iframes with toggle functionality -->
+                    <div class="website-toggle-container relative rounded-lg overflow-hidden shadow-xl"
+                        style="aspect-ratio: 16/9; max-width: 100%; overflow: hidden; border-radius: 8px;">
+                        <!-- Current website iframe - shown by default -->
+                        <iframe style="z-index: 0;"
+                            class="current-website w-full h-full absolute inset-0 z-10 transition-opacity duration-500"
+                            src="https://www.youtube.com/embed/7XQdzN0XV5c?si=1WtjXG9hucOuqqmD&autoplay=1&mute=1&controls=0&loop=1&playlist=7XQdzN0XV5c&modestbranding=1&showinfo=0"
+                            title="Current CSEL Website" frameborder="0" allow="autoplay; fullscreen"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+
+                        <!-- Old website iframe - hidden by default -->
+                        <img class="old-website w-full h-full absolute inset-0 z-0 transition-opacity duration-500"
+                            src="/Assets/websitePhotos/OldWebsite.png" alt="Old CSEL Website" spellcheck="false">
+                    </div>
+
+                    <!-- Toggle button for mobile -->
+                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <button
+                            id="mobile-toggle-button" class="btn-primary hidden">
+                            Toggle Website View
+                        </button>
+                    </div>
+
+                    <!-- Toggle instruction text -->
+                    <p class="text-center text-sm text-secondary mt-2">
+                        <span class="desktop-instruction"><i class="fas fa-mouse-pointer mr-1"></i> Hover to see old
+                            website</span>
+                        <span class="mobile-instruction hidden"><i class="fas fa-hand-pointer mr-1"></i> Tap the button
+                            to toggle old/new website</span>
+                    </p>
                 </div>
 
                 <div class="md:w-1/2">
@@ -489,35 +516,118 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="feature-card scroll-animation">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-primary">Room Reservations</h3>
-                    <p class="text-secondary">Easy-to-use system for students to reserve study rooms, collaboration
-                        spaces, and presentation areas for group projects or individual work.</p>
-                </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const container = document.querySelector('.website-toggle-container');
+                const currentWebsite = document.querySelector('.current-website');
+                const oldWebsite = document.querySelector('.old-website');
+                const desktopInstruction = document.querySelector('.desktop-instruction');
+                const mobileInstruction = document.querySelector('.mobile-instruction');
+                const mobileToggleButton = document.getElementById('mobile-toggle-button');
 
-                <div class="feature-card scroll-animation" style="transition-delay: 200ms;">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-primary">Project Showcase</h3>
-                    <p class="text-secondary">Platform for students to display their completed projects, fostering
-                        knowledge sharing and community recognition of achievements.</p>
-                </div>
+                // Detect if device is mobile
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-                <div class="feature-card scroll-animation" style="transition-delay: 400ms;">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-primary">Event Calendar</h3>
-                    <p class="text-secondary">Centralized calendar for workshops, speaker events, office hours, and
-                        community gatherings to improve participation and accessibility.</p>
+                // Show appropriate instruction and button based on device
+                if (isMobile) {
+                    desktopInstruction.classList.add('hidden');
+                    mobileInstruction.classList.remove('hidden');
+                    mobileToggleButton.classList.remove('hidden');
+                }
+
+                // Function to toggle websites
+                function toggleWebsites() {
+                    if (currentWebsite.style.opacity === '0') {
+                        // Show current website
+                        currentWebsite.style.opacity = '1';
+                        currentWebsite.style.zIndex = '10';
+                        oldWebsite.style.opacity = '0';
+                        oldWebsite.style.zIndex = '0';
+                    } else {
+                        // Show old website
+                        currentWebsite.style.opacity = '0';
+                        currentWebsite.style.zIndex = '0';
+                        oldWebsite.style.opacity = '1';
+                        oldWebsite.style.zIndex = '10';
+                    }
+                }
+
+                // Set initial opacity to ensure smooth transitions
+                currentWebsite.style.opacity = '1';
+                oldWebsite.style.opacity = '0';
+
+                // Add event listeners based on device type
+                if (isMobile) {
+                    // Toggle on button click for mobile
+                    mobileToggleButton.addEventListener('click', function () {
+                        toggleWebsites();
+                    });
+                } else {
+                    // Desktop - toggle on hover
+                    container.addEventListener('mouseenter', function () {
+                        currentWebsite.style.opacity = '0';
+                        currentWebsite.style.zIndex = '0';
+                        oldWebsite.style.opacity = '1';
+                        oldWebsite.style.zIndex = '10';
+                    });
+
+                    container.addEventListener('mouseleave', function () {
+                        currentWebsite.style.opacity = '1';
+                        currentWebsite.style.zIndex = '10';
+                        oldWebsite.style.opacity = '0';
+                        oldWebsite.style.zIndex = '0';
+                    });
+                }
+            });
+        </script>
+
+        <style>
+            /* Ensure smooth transitions */
+            .transition-opacity {
+                transition: opacity 0.5s ease-in-out;
+            }
+
+            /* Hide elements with class hidden */
+            .hidden {
+                display: none;
+            }
+
+            /* Additional styling to ensure the container maintains dimensions */
+            .website-toggle-container {
+                min-height: 315px;
+            }
+        </style>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="feature-card scroll-animation">
+                <div class="icon-wrapper">
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
+                <h3 class="text-xl font-bold mb-3 text-primary">Room Reservations</h3>
+                <p class="text-secondary">Easy-to-use system for students to reserve study rooms, collaboration
+                    spaces, and presentation areas for group projects or individual work.</p>
             </div>
+
+            <div class="feature-card scroll-animation" style="transition-delay: 200ms;">
+                <div class="icon-wrapper">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-primary">Project Showcase</h3>
+                <p class="text-secondary">Platform for students to display their completed projects, fostering
+                    knowledge sharing and community recognition of achievements.</p>
+            </div>
+
+            <div class="feature-card scroll-animation" style="transition-delay: 400ms;">
+                <div class="icon-wrapper">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-primary">Event Calendar</h3>
+                <p class="text-secondary">Centralized calendar for workshops, speaker events, office hours, and
+                    community gatherings to improve participation and accessibility.</p>
+            </div>
+        </div>
         </div>
     </section>
 
