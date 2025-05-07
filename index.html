@@ -518,86 +518,8 @@
             </div>
         </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const container = document.querySelector('.website-toggle-container');
-                const currentWebsite = document.querySelector('.current-website');
-                const oldWebsite = document.querySelector('.old-website');
-                const desktopInstruction = document.querySelector('.desktop-instruction');
-                const mobileInstruction = document.querySelector('.mobile-instruction');
-                const mobileToggleButton = document.getElementById('mobile-toggle-button');
-
-                // Detect if device is mobile
-                const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-                // Show appropriate instruction and button based on device
-                if (isMobile) {
-                    desktopInstruction.classList.add('hidden');
-                    mobileInstruction.classList.remove('hidden');
-                    mobileToggleButton.classList.remove('hidden');
-                }
-
-                // Function to toggle websites
-                function toggleWebsites() {
-                    if (currentWebsite.style.opacity === '0') {
-                        // Show current website
-                        currentWebsite.style.opacity = '1';
-                        currentWebsite.style.zIndex = '10';
-                        oldWebsite.style.opacity = '0';
-                        oldWebsite.style.zIndex = '0';
-                    } else {
-                        // Show old website
-                        currentWebsite.style.opacity = '0';
-                        currentWebsite.style.zIndex = '0';
-                        oldWebsite.style.opacity = '1';
-                        oldWebsite.style.zIndex = '10';
-                    }
-                }
-
-                // Set initial opacity to ensure smooth transitions
-                currentWebsite.style.opacity = '1';
-                oldWebsite.style.opacity = '0';
-
-                // Add event listeners based on device type
-                if (isMobile) {
-                    // Toggle on button click for mobile
-                    mobileToggleButton.addEventListener('click', function () {
-                        toggleWebsites();
-                    });
-                } else {
-                    // Desktop - toggle on hover
-                    container.addEventListener('mouseenter', function () {
-                        currentWebsite.style.opacity = '0';
-                        currentWebsite.style.zIndex = '0';
-                        oldWebsite.style.opacity = '1';
-                        oldWebsite.style.zIndex = '10';
-                    });
-
-                    container.addEventListener('mouseleave', function () {
-                        currentWebsite.style.opacity = '1';
-                        currentWebsite.style.zIndex = '10';
-                        oldWebsite.style.opacity = '0';
-                        oldWebsite.style.zIndex = '0';
-                    });
-                }
-            });
-        </script>
-
         <style>
-            /* Ensure smooth transitions */
-            .transition-opacity {
-                transition: opacity 0.5s ease-in-out;
-            }
 
-            /* Hide elements with class hidden */
-            .hidden {
-                display: none;
-            }
-
-            /* Additional styling to ensure the container maintains dimensions */
-            .website-toggle-container {
-                min-height: 315px;
-            }
         </style>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
