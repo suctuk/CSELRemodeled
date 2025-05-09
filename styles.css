@@ -4,6 +4,7 @@
     --bg-secondary: #f9fafb;
     --bg-hero: #e6ede8;
     --bg-footer: #1a202c;
+    --text-footer:#F9FAFB;
     --text-primary: #1a202c;
     --text-secondary: #4a5568;
     --text-inverse: #ffffff;
@@ -19,7 +20,8 @@
     --bg-secondary: #1f2937;
     --bg-hero: #374151;
     --bg-footer: #030712;
-    --text-primary: #f9fafb;
+    --text-footer:#030712;
+    --text-primary: #F9FAFB;
     --text-secondary: #d1d5db;
     --text-inverse: #1f2937;
     --accent-primary: #22c55e;
@@ -211,7 +213,7 @@ body {
 /* Team Member Cards */
 .team-member {
     transition: transform 0.3s ease;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-hero);
     color: var(--text-primary);
 }
 .team-member:hover {
@@ -421,8 +423,8 @@ body {
 
 /* Statistics Section */
 .stats-section {
-    background-color: var(--bg-footer);
-    color: var(--text-inverse);
+    background-color: var(--bg-hero);
+    color: var(--text-primary);
 }
 .stats-section .counter {
     color: var(--accent-light);
